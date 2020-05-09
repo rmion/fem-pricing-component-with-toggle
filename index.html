@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+  <title>Frontend Mentor | [Challenge Name Here]</title>
+</head>
+<body>
+  <main>
+    <h1>Our Pricing</h1>
+    <p>
+      <button type="button" aria-pressed="false">
+        Annually
+        <span class="unselected">
+          <i class="fas fa-toggle-on"></i>
+        </span>
+        <span>
+          <i class="fas fa-toggle-off"></i>
+        </span>
+      </button>
+    </p>
+    <dl>
+      <div>
+        <dt>Basic</dt>
+        <dd class="cost active"><span>&dollar;</span>19.99</dd>
+        <dd class="cost"><span>&dollar;</span>199.99</dd>
+        <dd>500 GB Storage</dd>
+        <dd>2 Users Allowed</dd>
+        <dd>Send up to 3 GB</dd>
+        <dd><a href="#" class="button">Learn More <span class="sr-only">about Basic plan</span></a></dd>
+      </div>
+      <div class="bg-primary">
+        <dt>Professional</dt>
+        <dd class="cost active"><span>&dollar;</span>24.99</dd>
+        <dd class="cost"><span>&dollar;</span>249.99</dd>
+        <dd>1 TB Storage</dd>
+        <dd>5 Users Allowed</dd>
+        <dd>Send up to 10 GB</dd>
+        <dd><a href="#" class="button">Learn More <span class="sr-only">about Professional plan</span></a></dd>
+      </div>
+      <div>
+        <dt>Master</dt>
+        <dd class="cost active"><span>&dollar;</span>39.99</dd>
+        <dd class="cost"><span>&dollar;</span>399.99</dd>
+        <dd>2 TB Storage</dd>
+        <dd>10 Users Allowed</dd>
+        <dd>Send up to 20 GB</dd>
+        <dd><a href="#" class="button">Learn More <span class="sr-only">about Master plan</span></a></dd>
+      </div>
+    </dl>
+  </main>
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://rmion.com">Robert Mion</a>.
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('[aria-pressed]');
+    toggle.addEventListener('click', (e) => {  
+      let pressed = e.target.getAttribute('aria-pressed') === 'true';
+      e.target.setAttribute('aria-pressed', String(!pressed));
+      document.querySelectorAll('button > span').forEach(el => el.classList.toggle('unselected'))
+      document.querySelectorAll('.cost').forEach(el => el.classList.toggle('active'))
+    });
+  </script>
+</body>
+</html>
